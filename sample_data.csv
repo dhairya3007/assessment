@@ -1,0 +1,12 @@
+name,email,phone,company,city
+John Doe,john@example.com,1234567890,Example Corp,New York
+Jane Smith,jane@example.com,+19876543210,Smith Ltd,London
+Missing Name,,+447700900077,Unknown Inc,Paris
+Bad Email,not-an-email,1234567890,Bad Inc,Berlin
+Bad Phone,badphone@example.com,abc,Phone Corp,Tokyo
+Missing Company,nocompany@example.com,1234567890,,Sydney
+Duplicate Email,john@example.com,1234567890,Duplicate Corp,New York
+Perfect Row,perfect@example.com,1231231234,Perfect Inc,Chicago
+Malformed Row,malformed@example.com,1234567890,Malformed Inc,Seattle,ExtraData
+Missing Columns,missing@example.com
+

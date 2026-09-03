@@ -1,0 +1,19 @@
+name,email,phone,company,city
+Valid User,valid@example.com,9876543210,Valid Corp,New York
+Bad Email User,not-an-email,9876543210,Bad Inc,London
+,missing.name@example.com,1234567890,No Name Ltd,Paris
+Duplicate One,dup@example.com,1112223333,Dup Corp,Berlin
+Bad Phone,badphone@example.com,abcdefgh,Phone Corp,Tokyo
+Valid User Two,valid2@example.com,5554443322,Valid Two LLC,Sydney
+Duplicate One,dup@example.com,1112223333,Dup Corp,Berlin
+Missing Phone,missing.phone@example.com,,No Phone Co,Toronto
+,,,, 
+Another Bad Email,@bademail,9998887776,Bad Email Inc,Madrid
+Valid User Three,valid3@example.com,1231231234,Valid Three,Dubai
+Missing Company,nocompany@example.com,6667778888,,Singapore
+Extra Columns,extra@example.com,1234567890,Extra Corp,Mumbai,ExtraCol1,ExtraCol2
+Valid User Four,valid4@example.com,9990001111,Valid Four Ltd,Cape Town
+Bad Email Two,invalid@@email,5556667777,Bad Two Inc,Seoul
+Duplicate Two,dup2@example.com,4443332221,Dup Two Corp,Rome
+Duplicate Two,dup2@example.com,4443332221,Dup Two Corp,Rome
+Valid User Five,valid5@example.com,3332221110,Valid Five Inc,Amsterdam

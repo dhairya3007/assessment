@@ -1,0 +1,13 @@
+name,email,phone,company,city
+John Smith,john.smith@example.com,1112223333,Smith Corp,New York
+Jane Doe,jane.doe@example.com,4445556666,Doe Inc,Los Angeles
+John Smith,john.smith@example.com,1112223333,Smith Corp,New York
+Alice Brown,alice.brown@example.com,7778889999,Brown Ltd,Chicago
+Bob White,bob.white@example.com,1231231234,White Co,Houston
+Jane Doe,jane.doe@example.com,4445556666,Doe Inc,Los Angeles
+Carol Green,carol.green@example.com,9879879876,Green LLC,Phoenix
+Dave Black,dave.black@example.com,3213214321,Black Inc,Philadelphia
+Alice Brown,alice.brown@example.com,7778889999,Brown Ltd,Chicago
+Eve Blue,eve.blue@example.com,6546546543,Blue Corp,San Antonio
+Bob White,bob.white@example.com,1231231234,White Co,Houston
+Frank Gray,frank.gray@example.com,9519519511,Gray Pvt,San Diego

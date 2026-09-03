@@ -1,0 +1,22 @@
+node_modules/
+dist/
+build/
+.vite/
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+.venv/
+
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+.gemini/

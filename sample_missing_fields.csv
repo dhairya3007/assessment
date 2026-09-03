@@ -1,0 +1,11 @@
+name,email,phone,company,city
+,alice@example.com,9876543210,Alice Co,Mumbai
+Bob,,+15551234567,Bob Inc,Delhi
+Charlie,charlie@example.com,,Charlie Ltd,Bangalore
+Diana,diana@example.com,9988776655,,Chennai
+Eve,eve@example.com,1234567890,Eve Corp,
+,,,, 
+Frank,frank@example.com,5554443322,Frank LLC,Hyderabad
+,,,Missing Everything,
+Grace,,,,Kolkata
+Hank,hank@example.com,,Hank Pvt,,
