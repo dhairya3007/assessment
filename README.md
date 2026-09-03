@@ -1,28 +1,19 @@
-﻿# CSV Data Import Dashboard
+﻿# OnePrism CSV Data Import Dashboard
 
-Hey! Thanks for checking out my submission for the technical assessment. 
+Hey! Thanks for reviewing my technical assessment submission. This is a full-stack web application designed to handle CSV customer record imports. It allows users to upload files, validates the data in the background, checks for duplicate emails, and then presents the results in a clean, paginated dashboard.
 
-This is a full-stack web application designed to handle CSV customer record imports. It allows users to upload files, validates the data in the background, checks for duplicate emails, and then presents the results in a clean, paginated dashboard. 
+## 🔗 Submission Links
 
-You can view the code at: https://github.com/dhairya3007/assessment
-*(Not currently deployed to a live URL, so please run it locally!)*
-
----
-
-## 🛠️ Built With
-
-- **Frontend:** React, TypeScript, and Vite. I kept the UI styling clean and modern using vanilla CSS variables.
-- **Backend:** FastAPI (Python). 
-- **Database:** SQLite with SQLAlchemy ORM.
-- **Validation:** Pydantic (specifically leveraging email-validator for RFC-compliant email checks).
+- **Repository Link:** https://github.com/dhairya3007/assessment
+- **Deployed Application:** Not yet deployed (built for local review).
 
 ---
 
-## 🚀 How to Run Locally
+## 🚀 Setup Instructions
 
 You'll need Node.js and Python 3.10+ installed on your machine.
 
-### 1. Start the Backend
+### 1. Start the Backend (FastAPI)
 
 Open a terminal, navigate to the ackend folder, and set up a virtual environment:
 
@@ -38,9 +29,9 @@ python -m venv venv
 pip install -r requirements.txt
 uvicorn main:app --reload
 `
-The API will spin up on http://localhost:8000. You can check out the auto-generated Swagger docs at http://localhost:8000/docs.
+The API will spin up on http://localhost:8000. 
 
-### 2. Start the Frontend
+### 2. Start the Frontend (React + Vite)
 
 Open a **second terminal window**, navigate to the rontend folder, and start the Vite dev server:
 
@@ -49,23 +40,36 @@ cd frontend
 npm install
 npm run dev
 `
-The React app should now be running at http://localhost:5173. 
-
-*(Make sure the backend is running first, otherwise the frontend won't be able to fetch or submit any data!)*
+The React app should now be running at http://localhost:5173. *(Make sure the backend is running first!)*
 
 ---
 
-## 🧪 Testing it out
+## 🧪 Sample CSV Files for Testing
 
-I've included a few sample CSV files in the root of the repository so you can test the validation logic without having to make your own files:
+I've included a few sample CSV files in the root of the repository so you can test the validation logic easily:
 
-- sample_data.csv: A standard mix of valid and invalid rows.
-- sample_duplicates.csv: Tests the deduplication logic (the first email is marked valid, and any subsequent matches are flagged as duplicates).
-- sample_missing_fields.csv: Tests validation for required fields like Name and Company.
-- sample_mixed_errors.csv: A combination of various edge cases all in one file.
+- **sample_data.csv**: A standard mix of valid and invalid rows.
+- **sample_duplicates.csv**: Tests the deduplication logic (first email is valid, subsequent matches are flagged).
+- **sample_missing_fields.csv**: Tests validation for required fields like Name and Company.
+- **sample_mixed_errors.csv**: A combination of various edge cases in one file.
 
-## 💡 A Quick Note on Architecture
+---
 
-To keep the application responsive during large file uploads, the CSV processing is handled asynchronously using FastAPI's BackgroundTasks. When you upload a file, the server immediately saves it, creates a "Pending" job in the database, and returns the Job ID to the frontend. The React app then polls the backend until the processing is complete.
+## 💡 Explanation of Important Technical Decisions
 
-I used SQLite for simplicity to make it easy for you to run locally without installing Postgres or Docker, but all database interactions are batched to handle large files efficiently. 
+### 1. Asynchronous Background Processing
+To keep the application responsive during large file uploads, the CSV processing is handled asynchronously using FastAPI's BackgroundTasks. When a file is uploaded, the server saves it, creates a "Pending" job in the database, and returns the Job ID immediately. The frontend then polls until processing completes. 
+
+### 2. Validation with Pydantic
+Instead of writing messy manual string checks, I used Pydantic (with email-validator) to declare a strict schema for every row. If a row is malformed, Pydantic catches it immediately, ensuring bad data never reaches the persistent database without being flagged.
+
+### 3. Batched Database Writes
+All database insertions are batched to handle large files efficiently and prevent memory overload. I used SQLite for this assessment for simplicity and zero setup, but the ORM (SQLAlchemy) allows an easy swap to PostgreSQL for production.
+
+---
+
+## ⚠️ Incomplete Features & Known Limitations
+
+- **Real-time Updates:** Currently, the frontend uses HTTP polling (fetching job status every 2 seconds). In a production environment, I would implement WebSockets or Server-Sent Events (SSE) to push progress updates to the client.
+- **Message Broker:** BackgroundTasks run in the same memory space as the API. For a real-world application, I would offload this to Celery and Redis to ensure jobs persist across server restarts.
+- **Automated Testing:** Due to the timebox, there are no automated unit tests (e.g., pytest or jest). Validation was primarily tested manually using the provided sample CSVs.
