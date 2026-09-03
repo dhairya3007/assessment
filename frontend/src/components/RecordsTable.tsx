@@ -39,10 +39,10 @@ export default function RecordsTable({
           </select>
         </div>
         <div style={{ position: 'relative' }}>
-          <input 
-            type="text" 
-            className="input" 
-            placeholder="Search by name, email, company, city..." 
+          <input
+            type="text"
+            className="input"
+            placeholder="Search by name, email, company, city..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             style={{ paddingLeft: '36px', width: '320px' }}
@@ -50,7 +50,7 @@ export default function RecordsTable({
           <Search size={18} style={{ position: 'absolute', left: '12px', top: '10px', color: 'var(--color-text-muted)' }} />
         </div>
       </div>
-      
+
       {records.records.length === 0 ? (
         <div className="text-center py-6" style={{ color: 'var(--color-text-muted)' }}>
           No records found matching filters.
@@ -85,7 +85,7 @@ export default function RecordsTable({
                         {Object.entries(record.raw_data).map(([key, value]) => {
                           return (
                             <span key={key} style={{ fontSize: '13px', color: 'var(--color-text-main)', backgroundColor: 'var(--color-bg)', padding: '2px 6px', borderRadius: '4px', border: '1px solid var(--color-border)' }}>
-                              <strong style={{ color: 'var(--color-text-muted)', marginRight: '4px' }}>{humanize(key)}:</strong> 
+                              <strong style={{ color: 'var(--color-text-muted)', marginRight: '4px' }}>{humanize(key)}:</strong>
                               {String(value)}
                             </span>
                           );
@@ -110,20 +110,20 @@ export default function RecordsTable({
               </tbody>
             </table>
           </div>
-          
+
           <div className="flex items-center justify-between mt-4" style={{ fontSize: '14px' }}>
             <span style={{ color: 'var(--color-text-muted)' }}>
               Showing {((records.page - 1) * records.limit) + 1} to {Math.min(records.page * records.limit, records.total)} of {records.total}
             </span>
             <div className="flex gap-2">
-              <button 
-                className="btn btn-outline" 
+              <button
+                className="btn btn-outline"
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={records.page === 1}
               >
                 Previous
               </button>
-              <button 
+              <button
                 className="btn btn-outline"
                 onClick={() => setPage(p => p + 1)}
                 disabled={records.page * records.limit >= records.total}
