@@ -1,6 +1,6 @@
 # OnePrism CSV Data Import Dashboard
 
-Hey! Thanks for reviewing my technical assessment submission. This is a full-stack web application designed to handle CSV customer record imports. It allows users to upload files, validates the data in the background, checks for duplicate emails, and then presents the results in a clean, paginated dashboard.
+Technical assessment submission. This is a full-stack web application designed to handle CSV customer record imports. It allows users to upload files, validates the data in the background, checks for duplicate emails, and then presents the results in a clean, paginated dashboard.
 
 ## 🔗 Submission Links
 
